@@ -24,6 +24,7 @@ grunt.initConfig({
   }
 });
 ```
+
 ## Usage
 
 Now that the helper is registered, you may begin using it in your templates.
