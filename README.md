@@ -2,6 +2,8 @@
 
 > Twitter handlebars helpers, for adding {{tweet}} and {{follow}} buttons to your web projects.
 
+See [dev.twitter.com](https://dev.twitter.com/docs/tweet-button) for more information.
+
 ## Installation
 
 Use [npm](npmjs.org) to install the package: `npm i handlebars-helper-twitter`.
@@ -27,12 +29,17 @@ grunt.initConfig({
 
 ## Usage
 
-Now that the helper is registered, you may begin using it in your templates.
+First, visit [dev.twitter](https://dev.twitter.com/docs/tweet-button) to copy/paste the necessary script into your templates. It looks like this (you probably shouldn't use this one, get the latest directly from twitter)
 
 ```html
-{{tweet url="http://assemble.io" via="assemblejs" related="jonschlinkert:Assemble core team"}}
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+```
+
+Now that the helper is registered, and the necessary script is in your templates, you may begin using it in your templates.
+
+```html
 {{follow user="upstage" repo="upstage" type="star"}}
-{{tweet user="upstage" repo="upstage" type="star"}}
+{{tweet url="http://assemble.io" via="assemblejs" related="jonschlinkert:Assemble core team"}}
 ```
 
 ## Options
@@ -40,9 +47,6 @@ Now that the helper is registered, you may begin using it in your templates.
 The following hash options may be passed to the helper, in the form of `foo="value"`:
 
 ### Tweet button
-    var url = options.hash.url || 'http://assemble.io';
-    var via = options.hash.via || 'assemblejs';
-    var related = options.hash.related || 'jonschlinkert:Assemble core team';
 
 #### url
 Type: `String`
